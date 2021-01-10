@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nelayan_ui_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.genm.pari.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <navigation
+        android:id="@+id/navigation_market"
+        app:startDestination="@id/market_items">
+
+        <fragment
+            android:id="@+id/market_items"
+            android:name="com.genm.pari.ui.market.MarketNelayanFragment"
+            android:label="Market"
+            tools:layout="@layout/fragment_market_nelayan" >
+            <action
+                android:id="@+id/action_market_items_to_insert_item"
+                app:destination="@id/insert_item" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/insert_item"
+            android:name="com.genm.pari.ui.market.NelayanInsertItemFragment"
+            android:label="Insert"
+            tools:layout="@layout/fragment_nelayan_insert_item"/>
+    </navigation>
+
+    <fragment
+        android:id="@+id/navigation_article"
+        android:name="com.genm.pari.ui.article.ArticleFragment"
+        android:label="Article"
+        tools:layout="@layout/fragment_article" />
+
+    <fragment
+        android:id="@+id/navigation_tool"
+        android:name="com.genm.pari.ui.tool.ToolFragment"
+        android:label="Tools"
+        tools:layout="@layout/fragment_tool"/>
+
+</navigation>

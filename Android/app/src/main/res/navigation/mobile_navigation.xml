@@ -3,29 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/nelayan_ui">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.genm.pari.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nelayan_ui"
+        android:name="com.genm.pari.ui.NelayanUIFragment"
+        android:label="Notification"
+        tools:layout="@layout/fragment_nelayan_u_i">
+        <action
+            android:id="@+id/action_nelayan_ui_to_notification_page2"
+            app:destination="@id/notification_page"/>
+            <!--
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit"-->
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_market"
-        android:name="com.genm.pari.ui.market.MarketNelayanFragment"
-        android:label="Market"
-        tools:layout="@layout/fragment_market_nelayan" />
-
-    <fragment
-        android:id="@+id/navigation_article"
-        android:name="com.genm.pari.ui.article.ArticleFragment"
-        android:label="Article"
-        tools:layout="@layout/fragment_article" />
-
-    <fragment
-        android:id="@+id/navigation_tool"
-        android:name="com.genm.pari.ui.tool.ToolFragment"
-        android:label="Tools"
-        tools:layout="@layout/fragment_tool"/>
+        android:id="@+id/notification_page"
+        android:name="com.genm.pari.ui.notifications.NotificationsFragment"
+        android:label="Notification"
+        tools:layout="@layout/fragment_notifications"/>
 </navigation>
