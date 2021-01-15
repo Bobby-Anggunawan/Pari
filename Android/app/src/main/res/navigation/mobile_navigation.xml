@@ -25,4 +25,10 @@
         android:name="com.genm.pari.ui.notifications.NotificationsFragment"
         android:label="Notification"
         tools:layout="@layout/fragment_notifications"/>
+
+    <fragment
+        android:id="@+id/fragment_chat"
+        android:name="com.genm.pari.ui.chat.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat"/>
 </navigation>

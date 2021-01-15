@@ -17,6 +17,7 @@ import com.genm.pari.MainActivity
 import com.genm.pari.R
 import com.genm.pari.adapter.ToolFragment_Adapter
 import com.genm.pari.ui.tool.ToolFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomeFragment : Fragment() {
 
@@ -45,6 +46,9 @@ class HomeFragment : Fragment() {
     MainActivity.actionBarBack.visibility = View.INVISIBLE
     Glide.with(this).load("https://w.bookcdn.com/weather/picture/3_42375_1_1_137AE9_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=88042")
       .fitCenter().into(weatherWidget)
+    root.findViewById<FloatingActionButton>(R.id.open_chat).setOnClickListener {
+      MainActivity.navController.navigate(R.id.fragment_chat)
+    }
 
     return root
   }
