@@ -43,10 +43,8 @@ class ChatFragment : Fragment() {
         val ListAdapter = ChatFragmentAdapter(chatList)
         myRecyclerView.adapter = ListAdapter
 
-        ListAdapter.setOnItemClickCallback(object : ChatFragmentAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: ChatFragmentAdapter.ListItem) {
-                //todo, gak bisa di klik waktu di tes pake toast. Tapi kayaknya lebih baik gak pae ini tapi ganti imageview jadi imagebutton
-            }
-        })
+        ListAdapter.onItemClick = {
+            MainActivity.navController.navigate(R.id.fragment_messages)
+        }
     }
 }

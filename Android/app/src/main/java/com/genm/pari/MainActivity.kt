@@ -18,6 +18,8 @@ import androidx.navigation.ui.setupWithNavController
 class MainActivity : AppCompatActivity() {
 
     companion object{
+        //todo implementaikan shared preference untuk menyimpan username setelah login
+        var username: String = "Bobby"
         lateinit var actionBarBack: ImageButton
         lateinit var notificationButton: ImageButton
         lateinit var mainContext: Context

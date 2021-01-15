@@ -17,10 +17,18 @@ class ChatFragmentAdapter(val Data: ArrayList<ListItem>): RecyclerView.Adapter<C
             var lastchat: String
     )
 
+    var onItemClick: ((ListItem) -> Unit)? = null
+
     inner class ItemData_Holder(ItemLayout: View): RecyclerView.ViewHolder(ItemLayout){
         var avatar: ImageView = ItemLayout.findViewById(R.id.avatar)
         var username: TextView = ItemLayout.findViewById(R.id.username)
         var lastchat: TextView = ItemLayout.findViewById(R.id.last_chat)
+
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(Data[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemData_Holder {
@@ -40,14 +48,5 @@ class ChatFragmentAdapter(val Data: ArrayList<ListItem>): RecyclerView.Adapter<C
     }
 
     //=======================================================================================
-    private lateinit var onItemClickCallback: OnItemClickCallback
-
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
-
-    interface OnItemClickCallback {
-        fun onItemClicked(data: ListItem)
-    }
 
 }
