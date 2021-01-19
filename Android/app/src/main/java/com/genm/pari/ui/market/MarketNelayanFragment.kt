@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,7 +36,6 @@ class MarketNelayanFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_market_nelayan, container, false)
-        MainActivity.actionBarBack.visibility = View.INVISIBLE
 
         myRecyclerView = root.findViewById(R.id.sell_item_list)
         myRecyclerView.setHasFixedSize(true)
@@ -42,9 +43,21 @@ class MarketNelayanFragment : Fragment() {
         //set onclick untuk menambah item
         root.findViewById<ImageButton>(R.id.nelayanAddItem).setOnClickListener{
             NelayanUIFragment.navController.navigate(R.id.insert_item)
-            //it.findNavController().navigate(R.id.insert_item)
         }
         SetAdapter()
+        root.findViewById<TextView>(R.id.item_count).text = "${sellItems.size} Items"
+
+        val topAppBar: Toolbar = root.findViewById(R.id.topAppBar)
+        topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.notification -> {
+                    MainActivity.navController.navigate(R.id.notification_page)
+                    true
+                }
+                else -> false
+            }
+        }
+
         return root
     }
 

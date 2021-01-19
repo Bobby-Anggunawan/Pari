@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.genm.pari.MainActivity
 import com.genm.pari.R
 import com.genm.pari.adapter.ChatContent_Adapter
 import com.genm.pari.adapter.ChatFragmentAdapter
@@ -20,7 +22,16 @@ class ChatContentFragment : Fragment() {
                 ChatContent_Adapter.ListItem("Bobby", "auiuahusa iaus iuahsu aiu", "20:00", "16-01-2021", true),
                 ChatContent_Adapter.ListItem("Stanley", "aiuhiea jjcnhsi siuhru", "20:01", "16-01-2021", false),
                 ChatContent_Adapter.ListItem("Bobby", "huiah eahe hfb", "10:40", "17-01-2021", true),
-                ChatContent_Adapter.ListItem("Stanley", "ahwuhi aueud fuisrh rui xiuxux urhai", "01:00", "18-01-2021", true)
+                ChatContent_Adapter.ListItem("Stanley", "ahwuhi aueud fuisrh rui xiuxux urhai", "01:00", "18-01-2021", true),
+                ChatContent_Adapter.ListItem("Bobby", "huiah eahe hfb", "10:41", "19-01-2021", true),
+                ChatContent_Adapter.ListItem("Stanley", "huiah eahe hfb", "10:42", "19-01-2021", false),
+                ChatContent_Adapter.ListItem("Bobby", "huiah eahe hfb", "10:43", "19-01-2021", false),
+                ChatContent_Adapter.ListItem("Stanley", "huiah eahe hfb", "10:44", "19-01-2021", false),
+                ChatContent_Adapter.ListItem("Bobby", "ugisdbvuuus udis u iu disds", "01:00", "20-01-2021", true),
+                ChatContent_Adapter.ListItem("Stanley", "ugisdbvuuus udis u iu disds", "01:00", "20-01-2021", false),
+                ChatContent_Adapter.ListItem("Bobby", "ugisdbvuuus udis u iu disds", "01:00", "20-01-2021", false),
+                ChatContent_Adapter.ListItem("Stanley", "ugisdbvuuus udis u iu disds", "01:00", "20-01-2021", false),
+                ChatContent_Adapter.ListItem("Bobby", "ugisdbvuuus udis u iu disds", "01:00", "20-01-2021", false),
         )
     }
 
@@ -31,6 +42,21 @@ class ChatContentFragment : Fragment() {
         myRecyclerView = root.findViewById(R.id.message_list)
         myRecyclerView.setHasFixedSize(true)
         SetAdapter()
+
+        val topAppBar: Toolbar = root.findViewById(R.id.topAppBar)
+        topAppBar.setNavigationOnClickListener {
+            activity?.onBackPressed()
+        }
+        topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.notification -> {
+                    MainActivity.navController.navigate(R.id.notification_page)
+                    true
+                }
+                else -> false
+            }
+        }
+
         return root
     }
 

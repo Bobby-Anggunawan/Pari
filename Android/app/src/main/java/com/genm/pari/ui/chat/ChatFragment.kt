@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,9 +33,22 @@ class ChatFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_chat, container, false)
         myRecyclerView = root.findViewById(R.id.chat_list)
         myRecyclerView.setHasFixedSize(true)
-        MainActivity.removeHomeButton() //saat halaman ini muncul, muncul juga tombol panah tapi gak bisa di klik
-        MainActivity.actionBarBack.visibility = View.VISIBLE
         SetAdapter()
+
+        val topAppBar: Toolbar = root.findViewById(R.id.topAppBar)
+        topAppBar.setNavigationOnClickListener {
+            activity?.onBackPressed()
+        }
+        topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.notification -> {
+                    MainActivity.navController.navigate(R.id.notification_page)
+                    true
+                }
+                else -> false
+            }
+        }
+
         return root
     }
 

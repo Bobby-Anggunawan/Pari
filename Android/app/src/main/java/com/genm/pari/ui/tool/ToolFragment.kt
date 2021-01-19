@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,7 +36,18 @@ class ToolFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_tool, container, false)
         myRecyclerView = root.findViewById(R.id.tool_list)
         myRecyclerView.setHasFixedSize(true)
-        MainActivity.actionBarBack.visibility = View.INVISIBLE
+
+        val topAppBar: Toolbar = root.findViewById(R.id.topAppBar)
+        topAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.notification -> {
+                    MainActivity.navController.navigate(R.id.notification_page)
+                    true
+                }
+                else -> false
+            }
+        }
+
         return root
     }
 

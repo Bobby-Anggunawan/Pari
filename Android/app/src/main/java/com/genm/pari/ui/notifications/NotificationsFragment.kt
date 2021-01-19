@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -48,9 +49,13 @@ class NotificationsFragment : Fragment() {
 
     myRecyclerView = root.findViewById(R.id.notification_list)
     myRecyclerView.setHasFixedSize(true)
-    MainActivity.actionBarBack.visibility = View.VISIBLE
     SetAdapter()
-    MainActivity.removeHomeButton() //saat halaman ini muncul, muncul juga tombol panah tapi gak bisa di klik
+
+    val topAppBar: Toolbar = root.findViewById(R.id.topAppBar)
+    topAppBar.setNavigationOnClickListener {
+      activity?.onBackPressed()
+    }
+
     return root
   }
 

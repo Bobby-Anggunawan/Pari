@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -43,11 +44,21 @@ class HomeFragment : Fragment() {
     val weatherWidget = root.findViewById<ImageView>(R.id.weather_widget)
     myRecyclerView = root.findViewById(R.id.shorcut_list)
     myRecyclerView.setHasFixedSize(true)
-    MainActivity.actionBarBack.visibility = View.INVISIBLE
     Glide.with(this).load("https://w.bookcdn.com/weather/picture/3_42375_1_1_137AE9_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=88042")
       .fitCenter().into(weatherWidget)
     root.findViewById<FloatingActionButton>(R.id.open_chat).setOnClickListener {
       MainActivity.navController.navigate(R.id.fragment_chat)
+    }
+
+    val topAppBar: Toolbar = root.findViewById(R.id.topAppBar)
+    topAppBar.setOnMenuItemClickListener { menuItem ->
+      when (menuItem.itemId) {
+        R.id.notification -> {
+          MainActivity.navController.navigate(R.id.notification_page)
+          true
+        }
+        else -> false
+      }
     }
 
     return root

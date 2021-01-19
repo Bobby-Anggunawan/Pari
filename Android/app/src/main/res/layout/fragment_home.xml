@@ -7,15 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment" >
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/app_bar_fragment_home"
+            app:title="Rays" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <SearchView
         android:id="@+id/searchView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Apa yang ingin anda temukan?"
         android:iconifiedByDefault="false"
+        android:queryHint="Apa yang ingin anda temukan?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <!--todo nanti ganti widget ini -->
     <ImageView
@@ -44,7 +60,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="20dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/blue_soft"
+        app:tint = "@color/white"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

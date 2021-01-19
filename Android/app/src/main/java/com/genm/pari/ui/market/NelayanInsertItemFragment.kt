@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.genm.pari.MainActivity
@@ -29,7 +30,6 @@ class NelayanInsertItemFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_nelayan_insert_item, container, false)
-        MainActivity.actionBarBack.visibility = View.VISIBLE
 
         myRecyclerView = root.findViewById(R.id.recyclerView)
         myRecyclerView.setHasFixedSize(true)
@@ -38,6 +38,11 @@ class NelayanInsertItemFragment : Fragment() {
         }
 
         SetAdapter()
+
+        val topAppBar: Toolbar = root.findViewById(R.id.topAppBar)
+        topAppBar.setNavigationOnClickListener {
+            activity?.onBackPressed()
+        }
 
         return root
     }
