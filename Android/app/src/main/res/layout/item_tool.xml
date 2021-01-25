@@ -22,7 +22,6 @@
         android:text="Test"
         app:layout_constraintTop_toBottomOf="@+id/tool_item_icon"
         android:textAlignment="center"
-        android:textSize="20dp"
         android:id="@+id/tool_item_name"/>
 
 

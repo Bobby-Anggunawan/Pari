@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     companion object{
         //todo implementaikan shared preference untuk menyimpan username setelah login
         var username: String = "Bobby"
+        var user_type: String = "Regular" //Nelayan or Regular
         lateinit var mainContext: Context
         lateinit var navController: NavController
     }
@@ -29,6 +30,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mainContext = this
         navController = findNavController(R.id.nav_host_fragment)
+        //ubah nafgraph untuk nelayan atau regular
+        if(user_type == "Nelayan"){
+            navController.setGraph(R.navigation.mobile_navigation_nelayan)
+        }
+        else{
+            navController.setGraph(R.navigation.mobile_navigation)
+        }
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         //todo, kode ini menyebabkan error saat actionbar dibuang

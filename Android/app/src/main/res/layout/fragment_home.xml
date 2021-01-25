@@ -43,14 +43,15 @@
         app:layout_constraintTop_toBottomOf="@+id/searchView2"
         android:src="@color/cardview_dark_background"/>
     <!-- ########################## -->
-
+    
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shorcut_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_widget"/>
+        app:layout_constraintTop_toBottomOf="@+id/weather_widget"
+        android:layout_marginTop="10sp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/open_chat"

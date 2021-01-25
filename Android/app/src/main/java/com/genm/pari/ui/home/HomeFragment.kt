@@ -28,6 +28,8 @@ class HomeFragment : Fragment() {
             ToolFragment_Adapter.ToolItem(R.drawable.ic_compas_black_24dp, "SOS"),
             ToolFragment_Adapter.ToolItem(R.drawable.ic_compas_black_24dp, "Radar Ikan"),
             ToolFragment_Adapter.ToolItem(R.drawable.ic_compas_black_24dp, "Input Item"),
+            ToolFragment_Adapter.ToolItem(R.drawable.ic_compas_black_24dp, "Alarm"),
+            ToolFragment_Adapter.ToolItem(R.drawable.ic_compas_black_24dp, "Compass"),
             ToolFragment_Adapter.ToolItem(R.drawable.plus_black, "")
     )
   }
@@ -71,7 +73,7 @@ class HomeFragment : Fragment() {
   }
 
   fun SetAdapter(){
-    myRecyclerView.layoutManager = GridLayoutManager(getActivity(), 3)
+    myRecyclerView.layoutManager = GridLayoutManager(getActivity(), 4)
     val ListAdapter = ToolFragment_Adapter(items)
     myRecyclerView.adapter = ListAdapter
 
