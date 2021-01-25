@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nelayan_ui"
-        android:name="com.genm.pari.ui.RegularUIFragment"
+        android:name="com.genm.pari.ui.MainUIFragment"
         android:label="Main"
-        tools:layout="@layout/fragment_regular_u_i">
+        tools:layout="@layout/fragment_main_u_i">
         <action
             android:id="@+id/action_nelayan_ui_to_notification_page2"
             app:destination="@id/notification_page"/>

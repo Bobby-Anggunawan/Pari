@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.genm.pari.MainActivity
 import com.genm.pari.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.transition.MaterialSharedAxis
 
 
-class RegularUIFragment : Fragment() {
+class MainUIFragment : Fragment() {
 
     companion object{
         lateinit var navController: NavController
@@ -30,7 +31,7 @@ class RegularUIFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_regular_u_i, container, false)
+        return inflater.inflate(R.layout.fragment_main_u_i, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,6 +39,12 @@ class RegularUIFragment : Fragment() {
 
         val navView: BottomNavigationView = view.findViewById(R.id.nav_view)
         navController = requireActivity().findNavController(R.id.nav_host_nelayan)
+        if(MainActivity.user_type == "Nelayan"){
+            navController.setGraph(R.navigation.nelayan_ui_navigation)
+        }
+        else{
+            navController.setGraph(R.navigation.regular_ui_navigation)
+        }
         navView.setupWithNavController(navController)
     }
 }

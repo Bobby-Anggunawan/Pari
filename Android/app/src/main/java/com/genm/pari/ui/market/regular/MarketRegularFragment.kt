@@ -14,7 +14,6 @@ import com.genm.pari.MainActivity
 import com.genm.pari.R
 import com.genm.pari.adapter.MarketNelayanFragment_Adapter
 import com.genm.pari.adapter.MarketRegularFragment_Adapter
-import com.genm.pari.ui.NelayanUIFragment
 
 
 class MarketRegularFragment : Fragment() {

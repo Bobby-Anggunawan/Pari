@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/container"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.MainUIFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -15,7 +14,7 @@
             android:id="@+id/nav_host_nelayan"
             android:name="androidx.navigation.fragment.NavHostFragment"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/nelayan_ui_navigation"
+            app:navGraph="@navigation/regular_ui_navigation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </FrameLayout>
@@ -40,6 +39,5 @@
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode = "unlabeled"
         android:layout_gravity="bottom"/>
-
 
 </FrameLayout>
