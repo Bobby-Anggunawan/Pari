@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/fragment_messages"
-        android:name="com.genm.pari.ui.chat.ChatContentFragment"
+        android:name="com.genm.pari.ui.chat.ChatContentUIFragment"
         android:label="ChannelName"
         tools:layout="@layout/fragment_chat_content"/>
 </navigation>

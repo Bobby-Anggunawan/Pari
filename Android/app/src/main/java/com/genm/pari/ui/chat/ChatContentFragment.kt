@@ -32,6 +32,7 @@ class ChatContentFragment : Fragment() {
                 ChatContent_Adapter.ListItem("Bobby", "ugisdbvuuus udis u iu disds", "01:00", "20-01-2021", false),
                 ChatContent_Adapter.ListItem("Stanley", "ugisdbvuuus udis u iu disds", "01:00", "20-01-2021", false),
                 ChatContent_Adapter.ListItem("Bobby", "ugisdbvuuus udis u iu disds", "01:00", "20-01-2021", false),
+                ChatContent_Adapter.ListItem("Bobby", "Last", "01:20", "21-01-2021", true)
         )
     }
 
