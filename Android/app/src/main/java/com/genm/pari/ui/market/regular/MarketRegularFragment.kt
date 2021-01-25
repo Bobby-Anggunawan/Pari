@@ -14,6 +14,7 @@ import com.genm.pari.MainActivity
 import com.genm.pari.R
 import com.genm.pari.adapter.MarketNelayanFragment_Adapter
 import com.genm.pari.adapter.MarketRegularFragment_Adapter
+import com.genm.pari.ui.MainUIFragment
 
 
 class MarketRegularFragment : Fragment() {
@@ -54,6 +55,10 @@ class MarketRegularFragment : Fragment() {
         myRecyclerView.layoutManager = GridLayoutManager(getActivity(), 2)
         val ListAdapter = MarketRegularFragment_Adapter(sellItems)
         myRecyclerView.adapter = ListAdapter
+
+        ListAdapter.onItemClick = {
+            MainUIFragment.navController.navigate(R.id.market_item)
+        }
     }
 
 }

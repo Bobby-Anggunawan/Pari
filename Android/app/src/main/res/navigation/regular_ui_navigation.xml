@@ -11,11 +11,20 @@
         tools:layout="@layout/fragment_home" />
 
 
-    <fragment
+    <navigation
         android:id="@+id/navigation_market"
-        android:name="com.genm.pari.ui.market.regular.MarketRegularFragment"
-        android:label="Market"
-        tools:layout="@layout/fragment_market_regular" />
+        app:startDestination="@+id/item_list">
+        <fragment
+            android:id="@+id/item_list"
+            android:name="com.genm.pari.ui.market.regular.MarketRegularFragment"
+            android:label="Market"
+            tools:layout="@layout/fragment_market_regular" />
+        <fragment
+            android:id="@+id/market_item"
+            android:name="com.genm.pari.ui.market.regular.MarketItemFragment"
+            android:label="Market"
+            tools:layout="@layout/fragment_market_item" />
+    </navigation>
 
 
     <fragment
