@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.ImageView
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -18,6 +20,9 @@ class MainUIFragment : Fragment() {
 
     companion object{
         lateinit var navController: NavController
+        lateinit var navView: BottomNavigationView
+        lateinit var main_con: FrameLayout
+        lateinit var nav_top_corner: ImageView
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +42,9 @@ class MainUIFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val navView: BottomNavigationView = view.findViewById(R.id.nav_view)
+        navView = view.findViewById(R.id.nav_view)
+        main_con = view.findViewById(R.id.main_container)
+        nav_top_corner = view.findViewById(R.id.nav_top_corner)
         navController = requireActivity().findNavController(R.id.nav_host_nelayan)
         if(MainActivity.user_type == "Nelayan"){
             navController.setGraph(R.navigation.nelayan_ui_navigation)

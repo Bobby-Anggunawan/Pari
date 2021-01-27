@@ -9,7 +9,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="?android:attr/actionBarSize">
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:id="@+id/main_container">
         <fragment
             android:id="@+id/nav_host_nelayan"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -20,6 +21,7 @@
     </FrameLayout>
 
     <ImageView
+        android:id="@+id/nav_top_corner"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:adjustViewBounds="true"

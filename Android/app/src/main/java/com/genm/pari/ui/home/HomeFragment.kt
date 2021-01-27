@@ -1,9 +1,11 @@
 package com.genm.pari.ui.home
 
+import android.app.ActionBar
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
@@ -11,13 +13,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.genm.pari.JavaFunction
 import com.genm.pari.MainActivity
 import com.genm.pari.R
 import com.genm.pari.adapter.ToolFragment_Adapter
+import com.genm.pari.ui.MainUIFragment
 import com.genm.pari.ui.tool.ToolFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomeFragment : Fragment() {
@@ -48,9 +54,6 @@ class HomeFragment : Fragment() {
     myRecyclerView.setHasFixedSize(true)
     Glide.with(this).load("https://w.bookcdn.com/weather/picture/3_42375_1_1_137AE9_160_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=124&domid=w209&anc_id=88042")
       .fitCenter().into(weatherWidget)
-    root.findViewById<FloatingActionButton>(R.id.open_chat).setOnClickListener {
-      MainActivity.navController.navigate(R.id.fragment_chat)
-    }
 
     val topAppBar: Toolbar = root.findViewById(R.id.topAppBar)
     topAppBar.setOnMenuItemClickListener { menuItem ->
@@ -59,9 +62,20 @@ class HomeFragment : Fragment() {
           MainActivity.navController.navigate(R.id.notification_page)
           true
         }
+        R.id.chat -> {
+          HomeAndChatFragment.viewPager.setCurrentItem(1)
+          true
+        }
         else -> false
       }
     }
+
+    ///set nav view spesial home
+    val navView: BottomNavigationView = root.findViewById(R.id.nav_view)
+    navView.setupWithNavController(MainUIFragment.navController)
+    MainUIFragment.navView.visibility = View.GONE
+    MainUIFragment.nav_top_corner.visibility = View.GONE
+    JavaFunction.setMargins(MainUIFragment.main_con, false)
 
     return root
   }

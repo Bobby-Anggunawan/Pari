@@ -13,6 +13,7 @@ import com.genm.pari.MainActivity
 import com.genm.pari.R
 import com.genm.pari.adapter.ChatFragmentAdapter
 import com.genm.pari.adapter.MarketNelayanFragment_Adapter
+import com.genm.pari.ui.home.HomeAndChatFragment
 import com.genm.pari.ui.market.MarketNelayanFragment
 
 class ChatFragment : Fragment() {
@@ -37,7 +38,7 @@ class ChatFragment : Fragment() {
 
         val topAppBar: Toolbar = root.findViewById(R.id.topAppBar)
         topAppBar.setNavigationOnClickListener {
-            activity?.onBackPressed()
+            HomeAndChatFragment.viewPager.setCurrentItem(0)
         }
         topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {

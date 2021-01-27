@@ -10,13 +10,16 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.genm.pari.JavaFunction
 import com.genm.pari.MainActivity
 import com.genm.pari.R
 import com.genm.pari.adapter.MarketNelayanFragment_Adapter
 import com.genm.pari.ui.MainUIFragment
 import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 
@@ -79,6 +82,9 @@ class MarketNelayanFragment : Fragment() {
                 }
             }
         }
+        JavaFunction.setMargins(MainUIFragment.main_con, true)
+        MainUIFragment.navView.visibility = View.VISIBLE
+        MainUIFragment.nav_top_corner.visibility = View.VISIBLE
         return root
     }
 
