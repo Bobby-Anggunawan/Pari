@@ -16,10 +16,18 @@ class MarketNelayanFragment_Adapter(val Data: ArrayList<MarketItem>): RecyclerVi
             var harga: Int
     )
 
+    var onItemClick: ((MarketNelayanFragment_Adapter.MarketItem) -> Unit)? = null
+
     inner class ItemData_Holder(ItemLayout: View):RecyclerView.ViewHolder(ItemLayout){
         var Icon: ImageView = ItemLayout.findViewById(R.id.image_item_sell)
         var Name: TextView = ItemLayout.findViewById(R.id.judul_item_sell)
         var Harga: TextView = ItemLayout.findViewById(R.id.harga_item_sell)
+
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(Data[adapterPosition])
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemData_Holder {
@@ -37,17 +45,6 @@ class MarketNelayanFragment_Adapter(val Data: ArrayList<MarketItem>): RecyclerVi
 
     override fun getItemCount(): Int {
         return Data.size
-    }
-
-    //=======================================================================================
-    private lateinit var onItemClickCallback: OnItemClickCallback
-
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
-
-    interface OnItemClickCallback {
-        fun onItemClicked(data: MarketItem)
     }
 
 }

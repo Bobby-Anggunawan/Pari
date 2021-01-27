@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     companion object{
         //todo implementaikan shared preference untuk menyimpan username setelah login
         var username: String = "Bobby"
-        var user_type: String = "Regular" //Nelayan or Regular
+        var user_type: String = "Nelayan" //Nelayan or Regular
         lateinit var mainContext: Context
         lateinit var navController: NavController
     }
