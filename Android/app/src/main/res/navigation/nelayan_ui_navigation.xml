@@ -44,4 +44,10 @@
         android:label="Tools"
         tools:layout="@layout/fragment_tool"/>
 
+    <fragment
+        android:id="@+id/navigarion_profile"
+        android:name="com.genm.pari.ui.profile.ProfileFragment"
+        android:label="Username"
+        tools:layout="@layout/fragment_profile"/>
+
 </navigation>

@@ -22,4 +22,9 @@
         android:icon="@drawable/ic_compas_black_24dp"
         android:title="Tools"/>
 
+    <item
+        android:id="@+id/navigarion_profile"
+        android:icon="@drawable/ic_face_24px"
+        android:title="Profile"/>
+
 </menu>

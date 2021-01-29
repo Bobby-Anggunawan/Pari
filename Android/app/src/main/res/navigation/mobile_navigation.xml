@@ -37,4 +37,15 @@
         android:name="com.genm.pari.ui.chat.ChatContentUIFragment"
         android:label="ChannelName"
         tools:layout="@layout/fragment_chat_content"/>
+
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.genm.pari.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login"/>
+    <fragment
+        android:id="@+id/fragment_register"
+        android:name="com.genm.pari.ui.login.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register"/>
 </navigation>
