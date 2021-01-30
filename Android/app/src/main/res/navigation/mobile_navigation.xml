@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nelayan_ui">
+    app:startDestination="@+id/splash_screen">
 
     <fragment
         android:id="@+id/nelayan_ui"
@@ -13,11 +13,6 @@
         <action
             android:id="@+id/action_nelayan_ui_to_notification_page2"
             app:destination="@id/notification_page"/>
-            <!--
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit"
-            app:popEnterAnim="@anim/fragment_open_enter"
-            app:popExitAnim="@anim/fragment_open_exit"-->
     </fragment>
 
     <fragment
@@ -48,4 +43,9 @@
         android:name="com.genm.pari.ui.login.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register"/>
+    <fragment
+        android:id="@+id/splash_screen"
+        android:name="com.genm.pari.ui.SplashFragment"
+        android:label="Loading"
+        tools:layout="@layout/fragment_splash"/>
 </navigation>

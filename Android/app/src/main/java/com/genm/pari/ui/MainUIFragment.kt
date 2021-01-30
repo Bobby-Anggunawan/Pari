@@ -54,4 +54,5 @@ class MainUIFragment : Fragment() {
         }
         navView.setupWithNavController(navController)
     }
+
 }
